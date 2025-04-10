@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#19004b"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="chats/chat.html">Chat</a></li>
+            <li><a href="chats/multichat.html">Multilingual chat</a></li>
+            <li><a href="chats/spoilerchat.html">Spoiler chat</a></li>
+            <li><a href="#">Questions</a></li>
+            <li><a href="#">Animations</a></li>
+            <li><a href="#">Fla sharing</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">Home and rules</a></li>
+            <li class="hideOnMobile"><a href="chats/chat.html">Chat</a></li>
+            <li class="hideOnMobile"><a href="chats/multichat.html">Multilingual chat</a></li>
+            <li class="hideOnMobile"><a href="chats/spoilerchat.html">Spoiler chat</a></li>
+            <li class="hideOnMobile"><a href="#">Questions</a></li>
+            <li class="hideOnMobile"><a href="#">Animations</a></li>
+            <li class="hideOnMobile"><a href="#">Fla sharing</a></li>
+            <li class="menuButton" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#19004b"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function showSidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+
+        function hideSidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+
+        window.onload = function () {
+            const savedName = localStorage.getItem("name");
+            if (savedName) {
+                document.getElementById("nameInput").value = savedName
+            }
+        }
+
+        function saveName() {
+            const name = document.getElementById("nameInput").value
+            localStorage.setItem("name", name)
+        }
+    </script>
+
+    <div class="wrapper">
+        <input type="text" id="nameInput" placeholder="My name is...">
+        <button onclick="saveName()">Save</button>
+    </div>
+    
+   
+</body>
+</html>
