@@ -69,6 +69,7 @@ nav li:first-child{
     width: 11%;
     padding: 20px;
     transform: scale(2);
+    pointer-events: none
 }
 
 @media(max-width: 950px){
